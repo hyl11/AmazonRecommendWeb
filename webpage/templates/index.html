@@ -7,6 +7,11 @@
 <html lang="en" class="">
 <!--<![endif]-->
 
+<!-- need var :
+    productList,bestList, popularList
+
+    Product: type, id, image, description, title,averageScore
+-->
 <head>
 	<meta charset="utf-8">
 
@@ -154,7 +159,6 @@
 						<!-- Section Header -->
 						<div class="section-header">
 							<h3>Products</h3>
-
 							<img src="images/section-seprator.png" alt="section-seprator" />
 						</div><!-- Section Header /- -->
 						<ul id="filters" class="products-categories no-left-padding">
@@ -190,116 +194,13 @@
 									<a href="#"><i class="fa fa-heart-o"></i></a>
 									<a href="#"><i class="fa fa-search"></i></a>
 								</div>
+                                <a href="#" class="addto-cart" title="Add To Cart">{{ product.type }}</a>
 							</li><!-- Product /- -->
-                            {% endfor %}
-							<!-- Product -->
-							<li class="product video">
-								<a href="#">
-									<img src="images/product-2.jpg" alt="Product" />
-									<h5>men's casual shoes</h5>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-							</li><!-- Product /- -->
-
-							<!-- Product -->
-							<li class="product photography">
-								<a href="#">
-									<img src="images/product-3.jpg" alt="Product" />
-									<h5>Sun glass</h5>
-									<span class="price"><del>$100</del>$35</span>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-								<a href="#" class="addto-cart" title="Add To Cart">Add To Cart</a>
-							</li><!-- Product /- -->
-
-							<!-- Product -->
-							<li class="product web">
-								<a href="#">
-									<img src="images/product-4.jpg" alt="Product" />
-									<h5>tourist bags</h5>
-									<span class="price"><del>$350</del>$279</span>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-								<a href="#" class="addto-cart" title="Add To Cart">Add To Cart</a>
-							</li><!-- Product /- -->
-
-							<!-- Product -->
-							<li class="product design">
-								<a href="#">
-									<img src="images/product-5.jpg" alt="Product" />
-									<h5>mobile phone</h5>
-									<span class="price"><del>$450</del>$359</span>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-								<a href="#" class="addto-cart" title="Add To Cart">Add To Cart</a>
-							</li><!-- Product /- -->
-
-							<!-- Product -->
-							<li class="product video">
-								<a href="#">
-									<img src="images/product-6.jpg" alt="Product" />
-									<h5>men's winter coat</h5>
-									<span class="price"><del>$220</del>$129</span>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-								<a href="#" class="addto-cart" title="Add To Cart">Add To Cart</a>
-							</li><!-- Product /- -->
-
-							<!-- Product -->
-							<li class="product photography">
-								<a href="#">
-									<img src="images/product-7.jpg" alt="Product" />
-									<h5>Model x12 computer</h5>
-									<span class="price"><del>$850</del>$550</span>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-								<a href="#" class="addto-cart" title="Add To Cart">Add To Cart</a>
-							</li><!-- Product /- -->
-
-							<!-- Product -->
-							<li class="product web">
-								<a href="#">
-									<img src="images/product-8.jpg" alt="Product" />
-									<h5>Stylish headset</h5>
-									<span class="price"><del>$50</del>$29</span>
-								</a>
-								<div class="wishlist-box">
-									<a href="#"><i class="fa fa-arrows-alt"></i></a>
-									<a href="#"><i class="fa fa-heart-o"></i></a>
-									<a href="#"><i class="fa fa-search"></i></a>
-								</div>
-								<a href="#" class="addto-cart" title="Add To Cart">Add To Cart</a>
-							</li><!-- Product /- -->
+                           {% endfor %}
 						</ul><!-- Products /- -->
 					</div><!-- Row /- -->
 					<nav class="ow-pagination">
 						<ul class="pager">
-							<li class="number"><a href="#">4</a></li>
-							<li class="load-more"><a href="#">Load More</a></li>
 							<li class="previous"><a href="#"><i class="fa fa-angle-right"></i></a></li>
 							<li class="next"><a href="#"><i class="fa fa-angle-left"></i></a></li>
 						</ul>
@@ -308,28 +209,24 @@
 			</div><!-- Product Section /- -->
 
 
-			<!-- Selling -->
+			<!-- BestSelling -->
 			<div id="selling" class="container-fluid no-left-padding no-right-padding woocommerce-selling">
 				<!-- Container -->
 				<div class="container">
 					<!-- Section Header -->
 					<div class="section-header">
 						<h3>Best Selling</h3>
-						<p> our vision is to be Earth's most customer centric company</p>
 						<img src="images/section-seprator.png" alt="section-seprator" />
 					</div><!-- Section Header /- -->
+                    {% for bestProduct in bestList %}
 					<div class="col-md-4 col-sm-6 col-xs-6">
 						<div class="selling-box">
-							<img src="images/selling-1.jpg" alt="selling" />
+							<img src="{{ bestProduct.image }}" alt="selling" />
 							<div class="selling-content">
-								<h6><a href="#">mens casual belts</a></h6>
-								<span class="price"><del>$75</del> $49</span>
+								<h6><a href="/webpage/detail/{{ bestProduct.id }}">{{ bestProduct.title }}</a></h6>
+                                <span class="price">{{ bestProduct.type }}</span>
 								<div class="star-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
+									<i class="fa">{{ bestProduct.averageScore }} </i>
 								</div>
 							</div>
 							<div class="icon-list">
@@ -338,114 +235,43 @@
 							</div>
 						</div>
 					</div>
+                    {% endfor %}
 
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="selling-box">
-							<img src="images/selling-2.jpg" alt="selling" />
-							<div class="selling-content">
-								<h6><a href="#">attractive chains</a></h6>
-								<span class="price"><del>$220</del> $149</span>
-								<div class="star-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-							</div>
-							<div class="icon-list">
-								<a href="#"><i class="fa fa-arrows-alt"></i></a>
-								<a href="#"><i class="fa fa-heart-o"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="selling-box">
-							<img src="images/selling-3.jpg" alt="selling" />
-							<div class="selling-content">
-								<h6><a href="#">ladies bags</a></h6>
-								<span class="price"><del>$325</del> $249</span>
-								<div class="star-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-							</div>
-							<div class="icon-list">
-								<a href="#"><i class="fa fa-arrows-alt"></i></a>
-								<a href="#"><i class="fa fa-heart-o"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="selling-box">
-							<img src="images/selling-4.jpg" alt="selling" />
-							<div class="selling-content">
-								<h6><a href="#">casual shirts</a></h6>
-								<span class="price"><del>$240</del> $179</span>
-								<div class="star-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-							</div>
-							<div class="icon-list">
-								<a href="#"><i class="fa fa-arrows-alt"></i></a>
-								<a href="#"><i class="fa fa-heart-o"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="selling-box">
-							<img src="images/selling-5.jpg" alt="selling" />
-							<div class="selling-content">
-								<h6><a href="#">ladies wallets</a></h6>
-								<span class="price"><del>$120</del> $79</span>
-								<div class="star-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-							</div>
-							<div class="icon-list">
-								<a href="#"><i class="fa fa-arrows-alt"></i></a>
-								<a href="#"><i class="fa fa-heart-o"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="selling-box">
-							<img src="images/selling-6.jpg" alt="selling" />
-							<div class="selling-content">
-								<h6><a href="#">huvai chappals</a></h6>
-								<span class="price"><del>$850</del> $550</span>
-								<div class="star-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-							</div>
-							<div class="icon-list">
-								<a href="#"><i class="fa fa-arrows-alt"></i></a>
-								<a href="#"><i class="fa fa-heart-o"></i></a>
-							</div>
-						</div>
-					</div>
 				</div><!-- Container /- -->
-			</div><!-- Selling /- -->
+			</div><!-- BestSelling /- -->
 
+        <!-- PopularSelling -->
+			<div id="selling" class="container-fluid no-left-padding no-right-padding woocommerce-selling">
+				<!-- Container -->
+				<div class="container">
+					<!-- Section Header -->
+					<div class="section-header">
+						<h3>Popular Selling</h3>
+						<img src="images/section-seprator.png" alt="section-seprator" />
+					</div><!-- Section Header /- -->
+                    {% for popularProduct in popularList %}
+					<div class="col-md-4 col-sm-6 col-xs-6">
+						<div class="selling-box">
+							<img src="{{ popularProduct.image }}" alt="selling" />
+							<div class="selling-content">
+								<h6><a href="/webpage/detail/{{ popularProduct.id }}">{{ popularProduct.title }}</a></h6>
+                                <span class="price">{{ popularProduct.type }}</span>
+								<div class="star-rating">
+									<i class="fa">{{ popularProduct.averageScore }} </i>
+								</div>
+							</div>
+							<div class="icon-list">
+								<a href="#"><i class="fa fa-arrows-alt"></i></a>
+								<a href="#"><i class="fa fa-heart-o"></i></a>
+							</div>
+						</div>
+					</div>
+                    {% endfor %}
+
+				</div><!-- Container /- -->
+			</div><!-- PopularSelling /- -->
+
+        </main>
 
 
 	</div>
