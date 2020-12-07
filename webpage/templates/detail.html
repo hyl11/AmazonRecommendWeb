@@ -173,11 +173,11 @@
             <tbody>
             <tr class="cart_item">
                 <td data-title="Item" class="product-thumbnail"><a href="#"><img
-                        src="{{ curProduct.image }}" alt="Product"></a></td>
+                        src="{{ curProduct.imageUrl }}" alt="Product"></a></td>
                 <td data-title="Total" class="product-subtotal">{{ curProduct.title }}</td>
-                <td data-title="Total" class="product-subtotal">{{ curProduct.averageScore }}</td>
-                <td data-title="Total" class="product-subtotal">{{ curProduct.description }}</td>
-                <td data-title="Total" class="product-subtotal">{{ curProduct.type }}</td>
+                <td data-title="Total" class="product-subtotal">{{ curProduct.avg }}</td>
+                <td data-title="Total" class="product-subtotal">{{ curProduct.descriptionOne }}</td>
+                <td data-title="Total" class="product-subtotal">{{ curProduct.product_type }}</td>
             </tr>
             </tbody>
         </table>
@@ -194,13 +194,13 @@
                 {% for similarProduct in similarList %}
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="selling-box">
-                            <img src="{{ similarProduct.image }}" alt="selling"/>
+                            <img src="{{ similarProduct.imageUrl }}" alt="selling"/>
                             <div class="selling-content">
-                                <h6><a href="/webpage/detail/{{ similarProduct.id }}">{{ similarProduct.title }}</a>
+                                <h6><a href="/webpage/detail/{{ similarProduct.intAsin }}">{{ similarProduct.title }}</a>
                                 </h6>
-                                <span class="price">{{ similarProduct.type }}</span>
+                                <span class="price">{{ similarProduct.product_type }}</span>
                                 <div class="star-rating">
-                                    <i class="fa">{{ similarProduct.overall }} </i>
+                                    <i class="fa">{{ similarProduct.avg }} </i>
                                 </div>
                             </div>
                             <div class="icon-list">
@@ -226,12 +226,12 @@
                 {% for guessProduct in guessList %}
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="selling-box">
-                            <img src="{{ guessProduct.image }}" alt="selling"/>
+                            <img src="{{ guessProduct.imageUrl }}" alt="selling"/>
                             <div class="selling-content">
-                                <h6><a href="/webpage/detail/{{ guessProduct.id }}">{{ guessProduct.title }}</a></h6>
-                                <span class="price">{{ guessProduct.type }}</span>
+                                <h6><a href="/webpage/detail/{{ guessProduct.intAsin }}">{{ guessProduct.title }}</a></h6>
+                                <span class="price">{{ guessProduct.product_type }}</span>
                                 <div class="star-rating">
-                                    <i class="fa">{{ guessProduct.overall }} </i>
+                                    <i class="fa">{{ guessProduct.avg }} </i>
                                 </div>
                             </div>
                             <div class="icon-list">

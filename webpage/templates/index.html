@@ -157,9 +157,9 @@
                     </div><!-- Section Header /- -->
                     <ul id="filters" class="products-categories no-left-padding">
                         <li><a data-filter="*" class="active" href="#">All Products</a></li>
-                        <li><a data-filter=".book" href="#">book</a></li>
-                        <li><a data-filter=".cloth" href="#">cloth</a></li>
-                        <li><a data-filter=".cellphone" href="#">cellphone</a></li>
+                        <li><a data-filter=".luxury" href="#">luxury</a></li>
+                        <li><a data-filter=".video_game" href="#">video game</a></li>
+                        <li><a data-filter=".music_instruments" href="#">music instruments</a></li>
 
                     </ul>
                     <div class="input-group">
@@ -173,12 +173,12 @@
                     <ul class="products">
                         {% for product in productList %}
                             <!-- Product -->
-                            <li class="product {{ product.type }}">
+                            <li class="product {{ product.product_type }}">
 
-                                <a href="/webpage/detail/{{ product.id }}">
+                                <a href="/webpage/detail/{{ product.intAsin }}">
 
                                     <div style="width:270px;height:300px;">
-                                        <img src="{{ product.image }}" alt="{{ product.description }}"/>
+                                        <img src="{{ product.imageUrl }}" alt="{{ product.description }}"/>
                                     </div>
                                     <h5>{{ product.title }}</h5>
                                 </a>
@@ -188,17 +188,12 @@
                                     <a href="#"><i class="fa fa-heart-o"></i></a>
                                     <a href="#"><i class="fa fa-search"></i></a>
                                 </div>
-                                <a href="#" class="addto-cart" title="Add To Cart">{{ product.type }}</a>
+                                <a href="#" class="addto-cart" title="">{{ product.product_type }}</a>
                             </li><!-- Product /- -->
                         {% endfor %}
                     </ul><!-- Products /- -->
                 </div><!-- Row /- -->
-                <nav class="ow-pagination">
-                    <ul class="pager">
-                        <li class="previous"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        <li class="next"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                    </ul>
-                </nav>
+
             </div><!-- Container /- -->
         </div><!-- Product Section /- -->
 
@@ -215,12 +210,12 @@
                 {% for bestProduct in bestList %}
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="selling-box">
-                            <img src="{{ bestProduct.image }}" alt="selling"/>
+                            <img src="{{ bestProduct.imageUrl }}" alt="selling"/>
                             <div class="selling-content">
-                                <h6><a href="/webpage/detail/{{ bestProduct.id }}">{{ bestProduct.title }}</a></h6>
-                                <span class="price">{{ bestProduct.type }}</span>
+                                <h6><a href="/webpage/detail/{{ bestProduct.intAsin }}">{{ bestProduct.title }}</a></h6>
+                                <span class="price">{{ bestProduct.product_type }}</span>
                                 <div class="star-rating">
-                                    <i class="fa">{{ bestProduct.averageScore }} </i>
+                                    <i class="fa">{{ bestProduct.avg }} </i>
                                 </div>
                             </div>
                             <div class="icon-list">
@@ -246,13 +241,13 @@
                 {% for popularProduct in popularList %}
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="selling-box">
-                            <img src="{{ popularProduct.image }}" alt="selling"/>
+                            <img src="{{ popularProduct.imageUrl }}" alt="selling"/>
                             <div class="selling-content">
-                                <h6><a href="/webpage/detail/{{ popularProduct.id }}">{{ popularProduct.title }}</a>
+                                <h6><a href="/webpage/detail/{{ popularProduct.intAsin }}">{{ popularProduct.title }}</a>
                                 </h6>
-                                <span class="price">{{ popularProduct.type }}</span>
+                                <span class="price">{{ popularProduct.product_type }}</span>
                                 <div class="star-rating">
-                                    <i class="fa">{{ popularProduct.averageScore }} </i>
+                                    <i class="fa">{{ popularProduct.avg }} </i>
                                 </div>
                             </div>
                             <div class="icon-list">
